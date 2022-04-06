@@ -24,19 +24,15 @@ if (process.env.DATABASE_URL) {
   }
 } */
 
-/* const db = new Sequelize(
-  process.env.DATABASE_URL || `postgres://morgan:testpassword@localhost:5432/${databaseName}`,
-  config
+const db = new Sequelize(
+  process.env.DATABASE_URL || `postgres://morgan:testpassword@localhost:5432/${databaseName}?sslmode=require`
+  //, config
 )
- */
 
 
-/* const db = new Sequelize(
-  process.env.DATABASE_URL ||
-  `postgres://morgan:testpassword@localhost:5432/${databaseName}`
-) */
 
-var db;
+
+/* var db;
 
 if (process.env.DATABASE_URL) {
   // the application is executed on Heroku ... use the postgres database
@@ -48,7 +44,7 @@ if (process.env.DATABASE_URL) {
 } else {
   // the application is executed on the local machine
   db = new Sequelize(`postgres://morgan:testpassword@localhost:5432/${databaseName}`);
-}
+} */
 
 module.exports = db
 
