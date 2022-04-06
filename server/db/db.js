@@ -33,7 +33,7 @@ if (process.env.DATABASE_URL) {
 
 const db = new Sequelize(
   process.env.DATABASE_URL ||
-  `postgres://localhost:5432/${databaseName}?sslmode=require`,
+  `postgres://morgan:testpassword@localhost:5432/${databaseName}`,
   {
     logging: false
   }
