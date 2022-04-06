@@ -7,6 +7,8 @@ const databaseName = pkg.name + (process.env.NODE_ENV === 'test' ? '-test' : '')
 let config
 
 
+
+
 if (process.env.DATABASE_URL) {
   config = {
     logging: false,
@@ -25,10 +27,7 @@ if (process.env.DATABASE_URL) {
   }
 }
 
-/* const db = new Sequelize(
-  process.env.DATABASE_URL || `postgres://morgan:testpassword@localhost:5432/${databaseName}?sslmode=require`
-  //, config
-) */
+
 
 const db = new Sequelize(
   process.env.DATABASE_URL ||
@@ -40,19 +39,7 @@ const db = new Sequelize(
 
 
 
-/* var db;
 
-if (process.env.DATABASE_URL) {
-  // the application is executed on Heroku ... use the postgres database
-  db = new Sequelize(process.env.DATABASE_URL, {
-    dialect: 'postgres',
-    protocol: 'postgres',
-    logging: true //false
-  });
-} else {
-  // the application is executed on the local machine
-  db = new Sequelize(`postgres://morgan:testpassword@localhost:5432/${databaseName}`);
-} */
 
 module.exports = db
 
