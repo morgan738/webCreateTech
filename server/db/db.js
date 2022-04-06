@@ -4,7 +4,7 @@ const pkg = require('../../package.json')
 
 const databaseName = pkg.name + (process.env.NODE_ENV === 'test' ? '-test' : '')
 
-/* let config
+let config
 
 
 if (process.env.DATABASE_URL) {
@@ -16,17 +16,25 @@ if (process.env.DATABASE_URL) {
         require: true,
         rejectUnauthorized: false
       }
-    }
+    },
+
   }
 } else {
   config = {
     logging: false
   }
-} */
+}
 
-const db = new Sequelize(
+/* const db = new Sequelize(
   process.env.DATABASE_URL || `postgres://morgan:testpassword@localhost:5432/${databaseName}?sslmode=require`
   //, config
+) */
+
+const db = new Sequelize(
+  process.env.DATABASE_URL ||
+  `postgres://localhost:5432/${databaseName}`,
+  config
+
 )
 
 
